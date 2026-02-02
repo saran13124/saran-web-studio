@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saran Web Studio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:#0e0e0e;color:#eaeaea}
+    a{text-decoration:none}
+
+    header{background:linear-gradient(135deg,#000,#1c1c1c);padding:20px 0;position:sticky;top:0;z-index:10}
+    .nav{max-width:1150px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+    .logo{color:#fff;font-size:22px;font-weight:600}
+    .nav a{color:#bbb;margin-left:22px;font-size:14px}
+    .nav a:hover{color:#fff}
+
+    .hero{max-width:1150px;margin:auto;padding:90px 20px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .hero h1{font-size:44px;margin-bottom:20px;color:#fff}
+    .hero p{color:#aaa;margin-bottom:30px}
+    .btn{background:#c9a14a;color:#000;padding:14px 30px;border-radius:30px;font-size:14px;font-weight:600;display:inline-block}
+
+    section{max-width:1150px;margin:auto;padding:70px 20px}
+    h2{text-align:center;margin-bottom:45px;font-size:32px;color:#fff}
+
+    .card{background:#151515;border-radius:18px;padding:30px;box-shadow:0 15px 40px rgba(0,0,0,0.6)}
+    .services,.pricing,.niches{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+
+    .price span{font-size:32px;font-weight:700;color:#c9a14a}
+    .price ul{margin-top:15px;font-size:14px;color:#bbb}
+    .price li{margin-bottom:8px}
+
+    .contact{background:#151515;border-radius:20px;padding:50px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+    .contact input,.contact textarea{width:100%;padding:12px;border-radius:8px;border:none;margin-bottom:12px;background:#0e0e0e;color:#fff}
+    .contact button{background:#c9a14a;color:#000;padding:12px;border:none;border-radius:30px;font-weight:600;cursor:pointer}
+
+    footer{text-align:center;padding:25px;color:#777;font-size:14px}
+
+    .whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px}
+
+    /* MODALS */
+    .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;z-index:99}
+    .modal-box{background:#151515;padding:40px;border-radius:20px;width:360px}
+    .modal-box h3{text-align:center;margin-bottom:15px}
+    .modal-box input{width:100%;padding:12px;margin-bottom:12px;border-radius:8px;border:none;background:#0e0e0e;color:#fff}
+    .modal-box button{width:100%;padding:12px;border:none;border-radius:30px;background:#c9a14a;font-weight:600;cursor:pointer}
+    .close{text-align:center;color:#aaa;margin-top:12px;font-size:13px;cursor:pointer}
+
+    ul{padding-left:18px}
+    ul li{margin-bottom:6px}
+
+    @media(max-width:850px){
+      .hero,.contact{grid-template-columns:1fr}
+      .hero h1{font-size:34px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Saran Web Studio</div>
+    <div>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#niches">Templates</a>
+      <a href="#contact">Contact</a>
+      <a href="#" onclick="openLogin()">Login</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>Luxury Websites<br>That Convert Clients</h1>
+    <p>I design premium, fast & mobile-first websites for businesses.</p>
+    <a href="#contact" class="btn">Start Your Project</a>
+  </div>
+  <div class="card">
+    <p>✔ Premium Dark UI</p>
+    <p>✔ WhatsApp Integration</p>
+    <p>✔ SEO Ready</p>
+    <p>✔ Fast Delivery</p>
+  </div>
+</div>
+
+<section id="services">
+  <h2>Services</h2>
+  <div class="services">
+    <div class="card">Business Websites</div>
+    <div class="card">Landing Pages</div>
+    <div class="card">Website Redesign</div>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2>Pricing</h2>
+  <div class="pricing">
+    <div class="card price">
+      <h3>Starter</h3>
+      <span>₹4,999</span>
+      <ul>
+        <li>1 Page</li>
+        <li>WhatsApp Button</li>
+      </ul>
+    </div>
+    <div class="card price">
+      <h3>Business</h3>
+      <span>₹9,999</span>
+      <ul>
+        <li>3–5 Pages</li>
+        <li>Contact Form</li>
+      </ul>
+    </div>
+    <div class="card price">
+      <h3>Pro</h3>
+      <span>₹14,999+</span>
+      <ul>
+        <li>Custom Design</li>
+        <li>SEO Setup</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="niches">
+  <h2>Niche Templates</h2>
+  <div class="niches">
+    <div class="card" onclick="openTemplate('shop')">Shop / Store</div>
+    <div class="card" onclick="openTemplate('realestate')">Real Estate</div>
+    <div class="card" onclick="openTemplate('coaching')">Coaching / Education</div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact">
+    <div>
+      <p>Email: nvssarank@gmail.com</p>
+      <p>instagram: whois_saran404</p>
+    </div>
+    <form action="https://formsubmit.co/yourgmail@gmail.com" method="POST">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea rows="4" name="message" placeholder="Project Details"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+<footer>© 2026 Saran Web Studio</footer>
+
+<a class="instagram" href="https://wa.me/whois_saran404">💬</a>
+
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <h3>Login / Sign Up</h3>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="closeLogin()">Continue</button>
+    <div class="close" onclick="closeLogin()">Close</div>
+  </div>
+</div>
+
+<!-- TEMPLATE MODAL -->
+<div class="modal" id="templateModal">
+  <div class="modal-box">
+    <h3 id="tTitle"></h3>
+    <p id="tDesc" style="color:#aaa;font-size:14px"></p>
+    <ul id="tFeatures"></ul>
+    <a href="#contact" class="btn" style="margin-top:15px">Request This</a>
+    <div class="close" onclick="closeTemplate()">Close</div>
+  </div>
+</div>
+
+<script>
+function openLogin(){loginModal.style.display='flex'}
+function closeLogin(){loginModal.style.display='none'}
+
+function openTemplate(type){
+  templateModal.style.display='flex'
+  tFeatures.innerHTML=''
+
+  if(type==='shop'){
+    tTitle.innerText='Shop / Store Website'
+    tDesc.innerText='Best for local shops & showrooms'
+    tFeatures.innerHTML='<li>Product showcase</li><li>whatswap orders</li><li>Offers section</li>'
+  }
+  if(type==='realestate'){
+    tTitle.innerText='Real Estate Website'
+    tDesc.innerText='For agents & builders'
+    tFeatures.innerHTML='<li>Property listings</li><li>Gallery</li><li>Site visit booking</li>'
+  }
+  if(type==='coaching'){
+    tTitle.innerText='Coaching Website'
+    tDesc.innerText='For institutes & trainers'
+    tFeatures.innerHTML='<li>Courses</li><li>Faculty</li><li>Admissions</li>'
+  }
+}
+function closeTemplate(){templateModal.style.display='none'}
+</script>
+
+</body>
+</html>
